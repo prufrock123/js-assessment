@@ -8,7 +8,8 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function() {
   return {
     globals : function() {
-      myObject = {
+      'use strict'; // use strict to prevent use of implicit globals.
+      var myObject = {
         name : 'Jory'
       };
 
@@ -16,21 +17,27 @@ define(function() {
     },
 
     functions : function(flag) {
-      if (flag) {
-        function getValue() { return 'a'; }
-      } else {
-        function getValue() { return 'b'; }
-      }
+      'use strict'; // Must declare functions at the top level of a function.
+      var getValue;
 
+      if (flag) {
+        getValue = function() { return 'a'; }
+// debugger;
+      } else {
+        getValue = function() { return 'b'; }
+      }
+// debugger;
       return getValue();
     },
 
     parseInt : function(num) {
-      return parseInt(num);
+      'use strict';
+      return parseInt(num, 10); // ALWAYS specify the radix parameter.
     },
 
     identity : function(val1, val2) {
-
+      return val1 === val2; // A function returns undefined if a value was not returned. 
+                            // Also, must use === for strict comparison.
     }
   };
 });
