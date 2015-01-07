@@ -156,11 +156,22 @@ define(function() {
         },
 
         square: function(arr) {
-
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] *= arr[i]
+            }
+            return arr;
         },
 
         findAllOccurrences: function(arr, target) {
+            occurrenceArray = [];
 
+            for (var i = 0; i < arr.length; i++) {
+                if (arr[i] === target) {
+                    occurrenceArray.push(i);
+                }
+            }
+
+            return occurrenceArray;
         }
     };
 });
