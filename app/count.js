@@ -20,7 +20,6 @@ define(function() {
              *
              * screenshot 4: answers.count(1, 5) is defined.
              */
-	            var i = start;
 	            // debugger;
 
 	            // function logger (iteration) {
@@ -40,21 +39,21 @@ define(function() {
 	            // 	}
 	            // }, 100);
 
-	            var ticker = setInterval(function() {
-	            	// debugger;
-	                if (i <= end) {
-	                    console.dir(i);
-	                    i++;
-	                } else {
-	                    clearInterval(ticker)
-	                }
-	            }, 100);
+	        var i = start;
+            var cancel = function(){
+            	clearInterval(ticker);
+            }
 
-	            var cancel = function(){
-	            	clearInterval(ticker);
-	            }
-             
+            var ticker = setInterval(function() {
+                if (i < end) {
+                    console.log(i);
+                    i++;
+                } else {
+                    cancel();
+                }
+            }, 100);
 
+            return ticker;
             
 
 
