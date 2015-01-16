@@ -40,18 +40,30 @@ define(function() {
 	            // }, 100);
 
 	        var i = start;
-            var cancel = function() {
-            	clearInterval(ticker);
-            }
+            // var cancel = function() {
+            // 	clearInterval(ticker);
+            // }
 
-            var ticker = setInterval(function() {
-                if (i <= end) {
+
+            var testingSomething = function() {
+            	 if (i <= end) {
                     console.log(i);
                     i++;
                 } else {
-                    clearInterval(ticker)
+                    clearInterval(ticker);
                 }
-            }, 100);
+            }
+
+            var ticker = setInterval(testingSomething, 90);
+
+            // var ticker = setInterval(function() {
+            //     if (i <= end) {
+            //         console.dir(i);
+            //         i++;
+            //     } else {
+            //         clearInterval(ticker)
+            //     }
+            // }, 100);
 
             return {
             	cancel: function(){
