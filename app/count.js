@@ -6,38 +6,56 @@ define(function() {
     return {
         count: function(start, end) {
             /**
-             * My error below was that I was using setInterval which messed up 
-             * the tests.
+             * So this has developed into quite a challenge. I know there is 
+             * a way to solve this using setTimeout, but at this point I really
+             * REALLY want to understand all the ways this is failing.
+             *
+             * Please see the attached screenshots for explanation of my process.
+             *
+             * screenshot 1: Counted too far. Strange.
+             *
+             * screenshot 2: Noticed the test caused code to run twice.
+             *
+             * screenshot 3: Noticed counter is undefined even tho..
+             *
+             * screenshot 4: answers.count(1, 5) is defined.
              */
-            // var i = start;
-            // debugger;
+	            var i = start;
+	            // debugger;
 
-            // function logger (iteration) {
-            // 	console.log(iteration);
-            // 	iteration++;
-            // }
+	            // function logger (iteration) {
+	            // 	console.log(iteration);
+	            // 	iteration++;
+	            // }
 
-            // function stopper (intID) {
-            // 	clearInterval(intID);
-            // }
+	            // function stopper (intID) {
+	            // 	clearInterval(intID);
+	            // }
 
-            // var ticker = setInterval(function() {
-            // 	if (i <= end) {
-            // 		logger(i);
-            // 	} else {
-            // 		stopper(ticker);
-            // 	}
-            // }, 100);
+	            // var ticker = setInterval(function() {
+	            // 	if (i <= end) {
+	            // 		logger(i);
+	            // 	} else {
+	            // 		stopper(ticker);
+	            // 	}
+	            // }, 100);
 
-            // var ticker = setInterval(function() {
-            // 	// debugger;
-            //     if (i <= end) {
-            //         console.log(i);
-            //         i++;
-            //     } else {
-            //         clearInterval(ticker)
-            //     }
-            // }, 100);
+	            var ticker = setInterval(function() {
+	            	// debugger;
+	                if (i <= end) {
+	                    console.dir(i);
+	                    i++;
+	                } else {
+	                    clearInterval(ticker)
+	                }
+	            }, 100);
+
+	            var cancel = function(){
+	            	clearInterval(ticker);
+	            }
+             
+
+            
 
 
         }

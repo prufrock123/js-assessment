@@ -35,12 +35,16 @@ define(['jquery'], function($) {
              * data...etc." passes.
              *
              * Not sure why this is. Time interval too long?
-             * No...
+             * Yes. did some research and the default timeout for Mocha is 2 seconds.
              */
 
+            // setTimeout(function() {
+            //     deferredObject.resolve(value);
+            // }, 3000);
+             
             setTimeout(function() {
                 deferredObject.resolve(value);
-            }, 3000);
+            }, 1000); 
 
             return deferredObject.promise();
         },

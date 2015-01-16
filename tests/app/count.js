@@ -48,6 +48,7 @@ define([
       this.timeout(600);
 
       var counter = answers.count(1, 5);
+      debugger;
       counter.cancel();
 
       setTimeout(function () {
