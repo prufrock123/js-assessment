@@ -40,22 +40,24 @@ define(function() {
 	            // }, 100);
 
 	        var i = start;
-            var cancel = function(){
+            var cancel = function() {
             	clearInterval(ticker);
             }
 
             var ticker = setInterval(function() {
-                if (i < end) {
+                if (i <= end) {
                     console.log(i);
                     i++;
                 } else {
-                    cancel();
+                    clearInterval(ticker)
                 }
             }, 100);
 
-            return ticker;
-            
-
+            return {
+            	cancel: function(){
+            		clearInterval(ticker);
+            	}
+            }
 
         }
     };
