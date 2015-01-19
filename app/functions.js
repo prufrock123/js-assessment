@@ -77,16 +77,18 @@ define(function() {
 
             // fn.apply(this, emptyArray)
 
-
         var args = Array.prototype.slice.call(arguments, 1, arguments.length)
         
         fn.apply(this, args)
     },
 
-    partialUsingArguments : function(fn) {
+    partialUsingArguments : function(fn) {      
         var args = Array.prototype.slice.call(arguments, 1, arguments.length)
-
-        
+        return function() {
+            var argsPartial = Array.prototype.slice.apply(arguments, []);
+            var argsTotal = args.concat(argsPartial)
+            return fn.apply(this, argsTotal)
+        }
     },
 
     curryIt : function(fn) {
