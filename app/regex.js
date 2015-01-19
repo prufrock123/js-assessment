@@ -12,7 +12,7 @@ define(function() {
     },
 
     endsWithVowel : function(str) {
-        return /(\d).
+        return /([aeiouAEIOU])(?!.)/.test(str)
     },
 
     captureThreeNumbers : function(str) {
