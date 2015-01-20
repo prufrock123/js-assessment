@@ -16,14 +16,20 @@ define(function() {
     },
 
     captureThreeNumbers : function(str) {
+        var found = /\d{3}/.exec(str)
 
+        if (found) {
+            return found[0] 
+        } else {
+            return false;
+        }
     },
 
     matchesPattern : function(str) {
-
+        return /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(str)
     },
     isUSD : function(str) {
-
+        return /^(\$[0-9]{1,3}(?:,?[0-9]{3})*(?:\.[0-9]{2})?$)/.test(str)
     }
   };
 });
