@@ -11,7 +11,8 @@ define(function() {
     },
 
     convertToBinary: function(num) {
-
+        debugger;
+        return (num).toString(2);
     },
 
     multiply: function(a, b) {
