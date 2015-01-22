@@ -15,12 +15,20 @@ define(function() {
     },
 
     base10: function(str) {
-
+        return parseInt(str, 2);
     },
 
     convertToBinary: function(num) {
-        debugger;
-        return (num).toString(2);
+        // debugger;
+        var answer = (num).toString(2);
+        sigFig = 8 - answer.length;
+
+        for (var i = 1; i <= sigFig; i++) {
+            // debugger;
+            answer = "0" + answer;
+        }
+
+        return answer;
     },
 
     multiply: function(a, b) {
